@@ -7,7 +7,8 @@ pipeline {
             steps {
                 script {
                     sh """
-
+                    echo "Building and deploying Docker image..."
+                    ls -l
                     cd Docker-front
                     docker build -t my-app:latest .
                     docker tag my-app:latest my-repo/my-app:latest

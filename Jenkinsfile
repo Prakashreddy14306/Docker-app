@@ -1,21 +1,23 @@
 pipeline {
     agent any
-
+   
     stages {
-        stage('Build') {
+        stage('Build and deploying Docker image') 
+        {
             steps {
-                script {}
-            }
-        }
-        stage('Test') {
-            steps {
-                echo 'Testing...'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying...'
-            }
+                script {
+                    sh """
+
+                    cd Docker-front
+                    docker build -t my-app:latest .
+                    docker tag my-app:latest my-repo/my-app:latest
+                    docker run -d -p 8081:80 my-repo/my-app:latest
+
+                    """
+                    echo "Docker image built and deployed successfully."
+                }
+            
         }
     }
+}
 }

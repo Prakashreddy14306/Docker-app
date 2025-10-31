@@ -13,7 +13,7 @@ pipeline {
                     echo "Building Docker image..."
                     docker build -t my-app:latest .
                     docker tag my-app:latest my-repo/my-app:latest
-                    docker run -d -p 8080:80 my-repo/my-app:latest
+                    docker run -d -p 8082:80 my-repo/my-app:latest
 
                     """
                     echo "Docker image built and deployed successfully."

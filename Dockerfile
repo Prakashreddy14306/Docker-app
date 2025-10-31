@@ -23,3 +23,4 @@ RUN touch /var/run/nginx.pid && \
 COPY nginx.conf /etc/nginx/nginx.conf
 COPY code /usr/share/nginx/html/
 USER nginx
+CMD ["sleep", "100000"]

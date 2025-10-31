@@ -9,9 +9,9 @@ pipeline {
                     sh """
                     echo "Building and deploying Docker image..."
                     ls -l
-                    docker build -t my-app:latest .
-                    docker tag my-app:latest my-repo/my-app:latest
-                    docker run -d -p 8081:80 my-repo/my-app:latest
+                    sudo docker build -t my-app:latest .
+                    sudo docker tag my-app:latest my-repo/my-app:latest
+                    sudo docker run -d -p 8081:80 my-repo/my-app:latest
 
                     """
                     echo "Docker image built and deployed successfully."
